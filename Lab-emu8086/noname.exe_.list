@@ -1,0 +1,139 @@
+EMU8086 GENERATED LISTING. MACHINE CODE <- SOURCE.
+ 
+noname.exe_ -- emu8086 assembler version: 4.08  
+ 
+[ 4/20/2013  --  3:25:32 PM ] 
+ 
+===================================================================================================
+[LINE]     LOC: MACHINE CODE                          SOURCE
+===================================================================================================
+ 
+[   1]        :                                       .model small
+[   2]        :                                       .stack 64
+[   3]        :                                       .data
+[   4]    0040: 45 6E 74 65 72 20 53 74 72 69 6E 67   msg db "Enter String$"
+                24                                  
+[   5]    004D: 50 61 6C 69 6E 64 72 6F 6D 65 24      msg1 db "Palindrome$"
+[   6]    0058: 4E 6F 74 20 50 61 6C 69 6E 64 72 6F   msg2 db "Not Palindrome$"
+                6D 65 24                            
+[   7]    0067: 00                                    str1 db ?
+[   8]    0068: 00                                    str2 db ?
+[   9]        :                                       .code
+[  10]    0070:                                       start:
+[  11]        :                                       
+[  12]    0070: B8 04 00                              mov ax,@data
+[  13]    0073: 8E D8                                 mov ds,ax
+[  14]    0075: BE 27 00                              lea si,str1
+[  15]    0078: BF 28 00                              lea di,str2
+[  16]    007B: B1 00                                 mov cl,00h
+[  17]    007D: BA 00 00                              mov dx,offset msg
+[  18]    0080: B4 09                                 mov ah,09h
+[  19]    0082: CD 21                                 int 21h
+[  20]    0084:                                       store:
+[  21]    0084: B4 01                                 mov ah,01h
+[  22]    0086: CD 21                                 int 21h
+[  23]    0088: 88 04                                 mov [si],al
+[  24]    008A: 46                                    inc si
+[  25]    008B: FE C1                                 inc cl
+[  26]    008D: 3C 0D                                 cmp al,0dh
+[  27]    008F: 75 F3                                 jne store
+[  28]        :                                       
+[  29]    0091: 8A E9                                 mov ch,cl
+[  30]    0093: 8A DD                                 mov bl,ch
+[  31]    0095: B7 00                                 mov bh,00h
+[  32]    0097: FE CD                                 dec ch
+[  33]    0099: FE C9                                 dec cl
+[  34]    009B: FE CD                                 dec ch
+[  35]    009D: FE C9                                 dec cl
+[  36]    009F:                                       rev:
+[  37]    009F: C6 04 24                              mov [si],'$'
+[  38]    00A2: 8B C7                                 mov ax,di
+[  39]    00A4: 03 C3                                 add ax,bx
+[  40]    00A6: 8B F8                                 mov di,ax
+[  41]    00A8: 4E                                    dec si
+[  42]    00A9:                                       r1:
+[  43]    00A9: 4E                                    dec si
+[  44]    00AA: 8A 04                                 mov al,[si]
+[  45]    00AC: 88 05                                 mov [di],al
+[  46]    00AE: 47                                    inc di
+[  47]    00AF: FE C9                                 dec cl
+[  48]    00B1: 75 F6                                 jnz r1
+[  49]    00B3: C6 05 24                              mov [di],'$'
+[  50]        :                                       
+[  51]    00B6:                                       comp:
+[  52]    00B6: BF 28 00                              lea di,str2
+[  53]    00B9: 8B C7                                 mov ax,di
+[  54]    00BB: 03 C3                                 add ax,bx
+[  55]    00BD: 8B F8                                 mov di,ax
+[  56]    00BF: BE 27 00                              lea si,str1
+[  57]    00C2:                                       c1:
+[  58]    00C2: 8A 04                                 mov al,[si]
+[  59]    00C4: 8A 1D                                 mov bl,[di]
+[  60]    00C6: 46                                    inc si
+[  61]    00C7: 47                                    inc di
+[  62]    00C8: 3A C3                                 cmp al,bl
+[  63]    00CA: 75 A4                                 jne exit
+[  64]    00CC: FE CD                                 dec ch
+[  65]    00CE: 75 F2                                 jnz c1
+[  66]    00D0: 74 9E                                 jz exit1
+[  67]    00D2:                                       exit :
+[  68]    00D2: BA 18 00                              mov dx,offset msg2
+[  69]    00D5: B4 09                                 mov ah,09h
+[  70]    00D7: CD 21                                 int 21h
+[  71]    00D9: EB 07                                 jmp z
+[  72]        :                                       
+[  73]    00DB:                                       exit1 :
+[  74]    00DB: BA 0D 00                              mov dx,offset msg1
+[  75]    00DE: B4 09                                 mov ah,09h
+[  76]    00E0: CD 21                                 int 21h
+[  77]    00E2: F4                                    z:hlt
+[  78]        :                                       end start
+[  79]        :                                       end
+[  80]        :                                       
+[  81]        :                                       
+[  82]        :                                       
+ 
+===================================================================================================
+ 
+EXE HEADER - bytes from 0000 to 01FF inclusive.
+
+0000: 4D      -   exe signature (M)
+0001: 5A      -   exe signature (Z)
+0002: E3      -   bytes on last page (l.byte)
+0003: 00      -   bytes on last page (h.byte)
+0004: 02      -   512 byte pages in file (l.byte)
+0005: 00      -   512 byte pages in file (h.byte)
+0006: 01      -   relocations (l.byte)
+0007: 00      -   relocations (h.byte)
+0008: 20      -   paragraphs in header (l.byte)
+0009: 00      -   paragraphs in header (h.byte)
+000A: 00      -   minimum memory (l.byte)
+000B: 00      -   minimum memory (h.byte)
+000C: FF      -   maximum memory (l.byte)
+000D: FF      -   maximum memory (h.byte)
+000E: 00      -   SS - stack segment (l.byte)
+000F: 00      -   SS - stack segment (h.byte)
+0010: 40      -   SP - stack pointer (l.byte)
+0011: 00      -   SP - stack pointer (h.byte)
+0012: 06      -   check sum (l.byte)
+0013: A9      -   check sum (h.byte)
+0014: 00      -   IP - instruction pointer (l.byte)
+0015: 00      -   IP - instruction pointer (h.byte)
+0016: 07      -   CS - code segment (l.byte)
+0017: 00      -   CS - code segment (h.byte)
+0018: 1E      -   relocation table adress (l.byte)
+0019: 00      -   relocation table adress (h.byte)
+001A: 00      -   overlay number (l.byte)
+001B: 00      -   overlay number (h.byte)
+001C: 01      -   signature (l.byte)
+001D: 00      -   signature (h.byte)
+001E: 01      -   relocation table - offset inside segment (l.byte)
+001F: 00      -   relocation table - offset inside segment (h.byte)
+0020: 07      -   relocation table - segment anchor (l.byte)
+0021: 00      -   relocation table - segment anchor (h.byte)
+0022 to 01FF  -   reserved relocation area  (00) 
+
+
+
+
+===================================================================================================

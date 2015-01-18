@@ -1,0 +1,22 @@
+mov al,03h
+mov bl,07h
+add al,bl
+mov si,3000h
+mov [si],al
+mov al,05h
+mov bl,03h
+sub al,bl
+mov si,3100h
+mov [si],al
+mov al,02h
+mov bl,03h
+mul bl
+inc si
+mov [si],al
+mov ah,00h
+mov al,04h
+mov bl,03h
+div bl
+inc si
+mov [si],al
+

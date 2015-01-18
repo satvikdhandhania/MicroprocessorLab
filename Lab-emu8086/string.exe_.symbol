@@ -1,0 +1,25 @@
+< THE SYMBOL TABLE >  string.exe_  --  emu8086 assembler version: 4.08 
+===================================================================================================
+Name                     	Offset    	Size      	Type      	Segment   
+===================================================================================================
+STACK                    	00000     	-5        	SEGMENT   	(ITSELF)  
+DATA                     	00004     	-5        	SEGMENT   	(ITSELF)  
+MSG                      	00000     	1         	VAR       	data      
+MSG1                     	00006     	1         	VAR       	data      
+MSG2                     	00011     	1         	VAR       	data      
+STR1                     	00020     	1         	VAR       	data      
+STR2                     	00021     	1         	VAR       	data      
+CODE                     	00007     	-5        	SEGMENT   	(ITSELF)  
+START                    	00000     	-1        	LABEL     	code      
+STORE                    	00014     	-1        	LABEL     	code      
+REV                      	0002B     	-1        	LABEL     	code      
+R1                       	00035     	-1        	LABEL     	code      
+COMP                     	00042     	-1        	LABEL     	code      
+C1                       	0004E     	-1        	LABEL     	code      
+EXIT                     	0005E     	-1        	LABEL     	code      
+EXIT1                    	00067     	-1        	LABEL     	code      
+Z                        	0006E     	-1        	LABEL     	code      
+===================================================================================================
+[ 4/20/2013  --  3:55:59 PM ] 
+< END >
+ 

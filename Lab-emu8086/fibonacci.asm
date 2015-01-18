@@ -1,0 +1,14 @@
+mov si,2000h
+mov cl,09h  
+mov [si],00h
+inc si
+mov [si],01h
+loop1:        
+inc si
+mov ax,[si-2]
+add ax,[si-1] 
+mov [si],ax
+dec cl
+jnz loop1
+hlt
+

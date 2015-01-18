@@ -1,0 +1,18 @@
+a db 07h
+mov cl,00h
+mov bl,02h
+mov al,a
+mov si,2000h
+loop1:
+mov ah,00h
+inc cl
+div bl
+mov [si],ah
+inc si
+cmp al,bl
+jge loop1
+mov [si],al
+hlt
+
+
+

@@ -1,0 +1,11 @@
+
+mov al,03h
+mov bl,04h
+imul bl
+mov si,4000h
+mov [si],al
+hlt
+
+
+
+; [SOURCE]: Z:\Sem4\Microprocessor Lab\Lab-emu8086\ARITHMETIC.asm

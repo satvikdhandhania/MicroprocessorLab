@@ -1,0 +1,21 @@
+mov ax,1234h
+mov bx,5678h
+add ax,bx
+inc si
+mov [si],ax
+mov ax,5678h
+mov bx,1234h
+sub ax,bx
+inc si
+mov [si],ax
+mov ax,1111h
+mov bx,2222h
+mul bx
+inc si
+mov [si],ax
+mov ax,2222h
+mov bx,1111h
+div bx
+inc si
+mov [si],ax
+

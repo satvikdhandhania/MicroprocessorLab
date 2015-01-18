@@ -1,0 +1,17 @@
+< THE SYMBOL TABLE >  searching.exe_  --  emu8086 assembler version: 4.08 
+===================================================================================================
+Name                     	Offset    	Size      	Type      	Segment   
+===================================================================================================
+STACK                    	00000     	-5        	SEGMENT   	(ITSELF)  
+DATA                     	00004     	-5        	SEGMENT   	(ITSELF)  
+A                        	00000     	1         	VAR       	data      
+CODE                     	00005     	-5        	SEGMENT   	(ITSELF)  
+START                    	00000     	-1        	LABEL     	code      
+RE                       	0000F     	-1        	LABEL     	code      
+FOUND                    	0001C     	-1        	LABEL     	code      
+NOTFOUND                 	00020     	-1        	LABEL     	code      
+EXIT                     	00023     	-1        	LABEL     	code      
+===================================================================================================
+[ 4/10/2013  --  4:02:28 PM ] 
+< END >
+ 
